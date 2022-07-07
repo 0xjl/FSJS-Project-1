@@ -42,8 +42,11 @@ const quotes = [
 ];
 
 // getRandomQuote function
-
-function getRandomQuote() {}
+function getRandomQuote() {
+  const randomNumber = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomNumber];
+  return randomQuote;
+}
 
 /***
  * `printQuote` function
