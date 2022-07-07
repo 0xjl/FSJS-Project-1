@@ -115,6 +115,15 @@ h1 {
   font-style: normal;
 }
 
+.faction {
+  font-style: bold;
+}
+
+.faction:before {
+  content: ", ";
+  font-style: normal;
+}
+
 @media (min-width: 768px) {
   body {
     padding: 25px;
