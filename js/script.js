@@ -1,5 +1,7 @@
-// quotes array
+// global variables
+let randomQuote;
 
+// quotes array
 const quotes = [
   {
     quote: "Try not. Do or do not. There is no try.",
@@ -12,6 +14,7 @@ const quotes = [
     source: "Obi-Wan Kenobi",
     citation: "Star Wars Episode IV: A New Hope",
     year: "1977",
+    tag: "My favorite movie",
   },
   {
     quote: "Your focus determines your reality.",
@@ -44,13 +47,23 @@ const quotes = [
 // getRandomQuote function
 function getRandomQuote() {
   const randomNumber = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[randomNumber];
-  return randomQuote;
+  return quotes[randomNumber];
 }
 
-/***
- * `printQuote` function
- ***/
+// printQuote function
+function printQuote() {
+  randomQuote = getRandomQuote();
+  let html = document.getElementById("quote-box");
+  let displayQuote = "";
+  displayQuote += `
+    <p class="quote">${randomQuote.quote}</p>
+    <p class="source">${randomQuote.source}   
+    <span class="citation">${randomQuote.citation}</span>
+    <span class="year">${randomQuote.year}</span></p>
+  `;
+  html.innerHTML = displayQuote;
+  console.log(randomQuote);
+}
 
 /***
  * click event listener for the print quote button
