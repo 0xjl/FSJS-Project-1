@@ -115,11 +115,11 @@ h1 {
   font-style: normal;
 }
 
-.faction {
+.rank {
   font-style: bold;
 }
 
-.faction:before {
+.rank:before {
   content: ", ";
   font-style: normal;
 }

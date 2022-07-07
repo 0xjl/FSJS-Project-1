@@ -6,21 +6,21 @@ const quotes = [
   {
     quote: "Try not. Do or do not. There is no try.",
     source: "Yoda",
-    faction: "Jedi",
+    rank: "Jedi Master",
     citation: "Star Wars Episode V: The Empire Strikes Back",
     year: "1980",
   },
   {
     quote: "Your eyes can deceive you; dont trust them.",
     source: "Obi-Wan Kenobi",
-    faction: "Jedi",
+    rank: "Jedi Master",
     citation: "Star Wars Episode IV: A New Hope",
     year: "1977",
   },
   {
     quote: "Your focus determines your reality.",
     source: "Qui-Gon Jinn",
-    faction: "Jedi",
+    rank: "Jedi Master",
     citation: "Star Wars Episode I: The Phantom Menace",
     year: "1999",
   },
@@ -28,7 +28,7 @@ const quotes = [
     quote:
       "Sometimes we must let go of our pride and do what is requested of us.",
     source: "Anakin Skywalker",
-    faction: "Jedi",
+    rank: "Jedi Knight",
     citation: "Star Wars Episode II: Attack Of The Clones",
     year: "2002",
   },
@@ -36,14 +36,14 @@ const quotes = [
     quote:
       "Well always be with you. No ones ever really gone. A thousand generations live in you now",
     source: "Luke Skywalker",
-    faction: "Jedi",
+    rank: "Jedi Knight",
     citation: "Star Wars Episode IX: The Rise of Skywalker",
     year: "2019",
   },
   {
     quote: "Be careful not to choke on your aspirations, director.",
     source: "Darth Vader",
-    faction: "Sith",
+    rank: "Sith Lord",
     citation: "Star Wars Rogue One",
     year: "2016",
   },
@@ -51,7 +51,7 @@ const quotes = [
     quote:
       "Stand together, die together. Let your death be the final word in the story of rebellion.",
     source: "Emperor Palpatine",
-    faction: "Sith",
+    rank: "Sith Lord",
     citation: "Star Wars EpisodeIX: The Rise of Skywalker",
     year: "2016",
   },
@@ -78,17 +78,21 @@ function printQuote() {
   randomQuote = getRandomQuote();
   let html = document.getElementById("quote-box");
   let displayQuote = "";
-  displayQuote += `
+  if (randomQuote.quote && randomQuote.source) {
+    displayQuote += `
     <p class="quote">${randomQuote.quote}</p>
-    <p class="source">${randomQuote.source}   
-      <span class="faction">${randomQuote.faction}</span>
-      <span class="citation">${randomQuote.citation}</span>
-      <span class="year">${randomQuote.year}</span>
-    </p>
-  `;
+    <p class="source">${randomQuote.source}
+    `;
+  }
+  if (randomQuote.rank && randomQuote.citation && randomQuote.year) {
+    displayQuote += `
+    <span class="rank">${randomQuote.rank}</span>
+    <span class="citation">${randomQuote.citation}</span>
+    <span class="year">${randomQuote.year}</span></p>
+    `;
+  }
   html.innerHTML = displayQuote;
   getRandomBackgroundColor();
-  console.log(randomQuote);
 }
 
 window.setInterval(printQuote, 15000);
