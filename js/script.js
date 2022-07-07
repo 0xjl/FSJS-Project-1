@@ -58,12 +58,15 @@ function printQuote() {
   displayQuote += `
     <p class="quote">${randomQuote.quote}</p>
     <p class="source">${randomQuote.source}   
-    <span class="citation">${randomQuote.citation}</span>
-    <span class="year">${randomQuote.year}</span></p>
+      <span class="citation">${randomQuote.citation}</span>
+      <span class="year">${randomQuote.year}</span>
+    </p>
   `;
   html.innerHTML = displayQuote;
   console.log(randomQuote);
 }
+
+window.setInterval(printQuote, 15000);
 
 /***
  * click event listener for the print quote button
